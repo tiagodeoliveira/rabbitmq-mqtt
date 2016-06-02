@@ -2,6 +2,10 @@ PROJECT = rabbitmq_mqtt
 
 DEPS = amqp_client
 
+# FIXME: Add Ranch as a BUILD_DEPS to be sure the correct version is picked.
+# See rabbitmq-components.mk.
+BUILD_DEPS += ranch
+
 TEST_DEPS = rabbitmq_test rabbitmq_java_client emqttc
 
 dep_emqttc = git https://github.com/emqtt/emqttc.git master
