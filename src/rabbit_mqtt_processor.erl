@@ -450,6 +450,7 @@ process_login(UserBin, PassBin, ProtoVersion,
               #proc_state{ channels     = {undefined, undefined},
                            socket       = Sock,
                            adapter_info = AdapterInfo }) ->
+    rabbit_log:info("[MQTT -> AMQP] Connecting with ~p from ~p~n", [UserBin, AdapterInfo#amqp_adapter_info.name]),
     {VHost, UsernameBin} = get_vhost_username(UserBin),
     case amqp_connection:start(#amqp_params_direct{
                                   username     = UsernameBin,
